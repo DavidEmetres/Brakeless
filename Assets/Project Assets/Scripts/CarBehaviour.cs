@@ -27,9 +27,9 @@ public class CarBehaviour : MonoBehaviour {
 		}
 		
 		JointSpring suspensionSpring = new JointSpring();
-		suspensionSpring.spring = 100000f;	//> valor, > suspension
-		suspensionSpring.damper = 5000f;	//> valor, > recuperacion de la suspension
-		suspensionSpring.targetPosition = 0.5f;	//valor a alcanzar por la suspension con respecto a la rueda
+		suspensionSpring.spring = 100000f;
+		suspensionSpring.damper = 5000f;
+		suspensionSpring.targetPosition = 0.5f;
 		
 		WheelFrictionCurve forwardFriction = new WheelFrictionCurve();
 		forwardFriction.extremumSlip = 0.4F;

@@ -7,12 +7,16 @@ public class CarBehaviour : MonoBehaviour {
 	JointSpring suspensionSpring;
 	WheelFrictionCurve forwardFriction;
 	WheelFrictionCurve sidewaysFriction;
+	Rigidbody carRigidbody;
 	
 	public GameObject wheelShape;
-	public float maxAngle = 35f;
+	public float maxAngle = 7f;
+	public float glide = 450000f;
+	public string mode = "driving";
 
 	void Start () {
 		wheels = GetComponentsInChildren<WheelCollider>();
+		carRigidbody = GetComponent<Rigidbody>();
 
 		for (int i = 0; i < wheels.Length; ++i) 
 		{
@@ -26,24 +30,24 @@ public class CarBehaviour : MonoBehaviour {
 			}
 		}
 		
-		JointSpring suspensionSpring = new JointSpring();	//PRUEBA GIT HUB
+		JointSpring suspensionSpring = new JointSpring();
 		suspensionSpring.spring = 100000f;
 		suspensionSpring.damper = 5000f;
 		suspensionSpring.targetPosition = 0.5f;
 		
 		WheelFrictionCurve forwardFriction = new WheelFrictionCurve();
-		forwardFriction.extremumSlip = 0.4F;
-		forwardFriction.extremumValue = 1F;
-		forwardFriction.asymptoteSlip = 0.8F;
-		forwardFriction.asymptoteValue = 0.5F;
-		forwardFriction.stiffness = 1.0F;
+		forwardFriction.extremumSlip = 0.4f;
+		forwardFriction.extremumValue = 1f;
+		forwardFriction.asymptoteSlip = 0.8f;
+		forwardFriction.asymptoteValue = 0.5f;
+		forwardFriction.stiffness = 1.0f;
 
 		WheelFrictionCurve sidewaysFriction = new WheelFrictionCurve();
-		sidewaysFriction.extremumSlip = 0.2F;
-		sidewaysFriction.extremumValue = 1F;
-		sidewaysFriction.asymptoteSlip = 0.5F;
-		sidewaysFriction.asymptoteValue = 0.75F;
-		sidewaysFriction.stiffness = 1.0F;
+		sidewaysFriction.extremumSlip = 0.2f;
+		sidewaysFriction.extremumValue = 1f;
+		sidewaysFriction.asymptoteSlip = 0.5f;
+		sidewaysFriction.asymptoteValue = 0.75f;
+		sidewaysFriction.stiffness = 2f;
 		
 		foreach (WheelCollider wheel in wheels)
 		{
@@ -54,7 +58,10 @@ public class CarBehaviour : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		RotateWheels();
+		if(mode == "driving")
+			RotateWheels();
+		else if(mode == "gliding")
+			Glide();
 	}
 	
 	void RotateWheels()
@@ -82,6 +89,26 @@ public class CarBehaviour : MonoBehaviour {
 				shapeTransform.rotation = q;
 			}
 
+		}
+	}
+	
+	void Glide()
+	{
+		carRigidbody.AddForce(new Vector3(0, glide * Time.deltaTime, 0), ForceMode.Force);
+		carRigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
+		
+		float angle = maxAngle * Input.GetAxis("Horizontal");
+		
+		transform.Rotate(Vector3.up * angle * Time.deltaTime);
+		carRigidbody.AddForce(new Vector3(angle * 50000 * Time.deltaTime, 0, 0), ForceMode.Force);
+		transform.Rotate(Vector3.forward * -angle * Time.deltaTime);
+	}
+	
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.tag == "Finish")
+		{
+			mode = "gliding";
 		}
 	}
 }

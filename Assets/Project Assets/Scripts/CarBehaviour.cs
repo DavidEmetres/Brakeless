@@ -129,10 +129,14 @@ public class CarBehaviour : MonoBehaviour {
 			startDistance = transform.position;
 			endDistance = startDistance;
 		}
-		
-		if(other.tag == "End")
+	}
+	
+		void OnTriggerStay(Collider other)
+	{
+		if(other.tag == "Floor")
 		{
 			mode = "driving";
+			carRigidbody.constraints = RigidbodyConstraints.None;
 		}
 	}
 	

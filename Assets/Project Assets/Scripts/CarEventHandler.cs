@@ -7,11 +7,11 @@ public class CarEventHandler : MonoBehaviour {
 	private Transform respawnPos;
 	private Transform nextCheckPoint;
 	private Rigidbody carRigidbody;
-	private bool boost = false;
+	private bool boost = true;
 	private float timer = 0f;
 	private bool hasBeenTriggered = false;
 	
-	public float boostForce = 50000f;
+	public float boostForce = 500000f;
 	public float boostTime = 5f;
 
 	void Start () {
@@ -19,7 +19,7 @@ public class CarEventHandler : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if(boost)
+		/*if(boost)
 		{
 			if(timer >= 0)
 			{
@@ -32,7 +32,9 @@ public class CarEventHandler : MonoBehaviour {
 				boost = false;
 				Debug.Log("Boost Desactivated");
 			}
-		}
+		}*/
+		
+		Debug.Log(carRigidbody.velocity.magnitude);
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -92,6 +94,6 @@ public class CarEventHandler : MonoBehaviour {
 	
 	void Boost()
 	{
-		carRigidbody.AddForce(new Vector3(0, 0, boostForce * Time.deltaTime), ForceMode.Force);
+		carRigidbody.AddRelativeForce(new Vector3(0, 0, boostForce * Time.deltaTime), ForceMode.Force);
 	}
 }

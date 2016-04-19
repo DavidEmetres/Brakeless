@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 036f1547bc57eba4a98a5bdcf1e17a60
+timeCreated: 1461059180
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: curve1
+    100004: curve2
+    100006: curve3
+    100008: curve4
+    100010: curve5
+    100012: curve6
+    100014: curve7
+    100016: Curves
+    100018: extrudedSurface1
+    100020: extrudedSurface2
+    100022: extrudedSurface3
+    100024: extrudedSurface4
+    100026: extrudedSurface5
+    100028: extrudedSurface6
+    100030: extrudedSurface7
+    100032: nurbsPlane1
+    100034: nurbsToPoly1
+    100036: nurbsToPoly1 1
+    100038: nurbsToPoly2
+    100040: nurbsToPoly3
+    100042: nurbsToPoly3 1
+    100044: nurbsToPoly4
+    100046: nurbsToPoly4 1
+    100048: nurbsToPoly5
+    100050: nurbsToPoly5 1
+    100052: nurbsToPoly6
+    100054: nurbsToPoly6 1
+    100056: nurbsToPoly7
+    100058: Polygons
+    100060: Scene
+    100062: Surfaces
+    100064: Track
+    100066: transform1
+    100068: transform10
+    100070: transform11
+    100072: transform12
+    100074: transform2
+    100076: transform3
+    100078: transform4
+    100080: transform5
+    100082: transform6
+    100084: transform7
+    100086: transform8
+    100088: transform9
+    100090: Water
+    400000: //RootNode
+    400002: curve1
+    400004: curve2
+    400006: curve3
+    400008: curve4
+    400010: curve5
+    400012: curve6
+    400014: curve7
+    400016: Curves
+    400018: extrudedSurface1
+    400020: extrudedSurface2
+    400022: extrudedSurface3
+    400024: extrudedSurface4
+    400026: extrudedSurface5
+    400028: extrudedSurface6
+    400030: extrudedSurface7
+    400032: nurbsPlane1
+    400034: nurbsToPoly1
+    400036: nurbsToPoly1 1
+    400038: nurbsToPoly2
+    400040: nurbsToPoly3
+    400042: nurbsToPoly3 1
+    400044: nurbsToPoly4
+    400046: nurbsToPoly4 1
+    400048: nurbsToPoly5
+    400050: nurbsToPoly5 1
+    400052: nurbsToPoly6
+    400054: nurbsToPoly6 1
+    400056: nurbsToPoly7
+    400058: Polygons
+    400060: Scene
+    400062: Surfaces
+    400064: Track
+    400066: transform1
+    400068: transform10
+    400070: transform11
+    400072: transform12
+    400074: transform2
+    400076: transform3
+    400078: transform4
+    400080: transform5
+    400082: transform6
+    400084: transform7
+    400086: transform8
+    400088: transform9
+    400090: Water
+    2300000: Scene
+    2300002: Track
+    2300004: Water
+    3300000: Scene
+    3300002: Track
+    3300004: Water
+    4300000: Scene
+    4300002: Water
+    4300004: Track
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1000
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

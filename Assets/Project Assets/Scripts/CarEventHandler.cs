@@ -34,6 +34,8 @@ public class CarEventHandler : MonoBehaviour {
 			}
 		}*/
 		
+		Boost();
+		
 		Debug.Log(carRigidbody.velocity.magnitude);
 	}
 	

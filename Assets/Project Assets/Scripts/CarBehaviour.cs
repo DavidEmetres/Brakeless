@@ -18,7 +18,7 @@ public class CarBehaviour : MonoBehaviour {
 	public GameObject wheelShape;
 	public float maxAngle = 7f;
 	public float glide = 480000f;	//480000 max -> 430000 min aprox.
-	public string mode = "driving";
+	public string mode = "respawning";
 
 	void Start () {
 		wheels = GetComponentsInChildren<WheelCollider>();
@@ -65,11 +65,13 @@ public class CarBehaviour : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if(mode == "driving")
-			RotateWheels();
+		if (mode == "driving" || mode == "slowing")
+			RotateWheels ();
+		else if (mode == "gliding")
+			Glide ();
 		
-		else if(mode == "gliding")
-			Glide();
+		if(wheels != null)
+			WheelCollision ();
 	}
 	
 	void RotateWheels()
@@ -130,13 +132,26 @@ public class CarBehaviour : MonoBehaviour {
 			endDistance = startDistance;
 		}
 	}
-	
-		void OnTriggerStay(Collider other)
+
+	void WheelCollision()
 	{
-		if(other.tag == "Floor")
+		WheelHit hit;
+
+		wheels [0].GetGroundHit (out hit);
+
+		if (hit.collider != null)
 		{
-			mode = "driving";
-			carRigidbody.constraints = RigidbodyConstraints.None;
+			if (hit.collider.tag == "Floor") {
+				Debug.Log ("Colisionando con FLOOR");
+				mode = "driving";
+				carRigidbody.constraints = RigidbodyConstraints.None;
+			}
+
+			if (hit.collider.tag == "Slow") {
+				Debug.Log ("Colisionando con SLOW");
+				mode = "slowing";
+				carRigidbody.constraints = RigidbodyConstraints.None;
+			}
 		}
 	}
 	

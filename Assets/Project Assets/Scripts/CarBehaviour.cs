@@ -8,8 +8,7 @@ public class CarBehaviour : MonoBehaviour {
 	WheelFrictionCurve forwardFriction;
 	WheelFrictionCurve sidewaysFriction;
 	Rigidbody carRigidbody;
-	
-	public Transform glidePlane;
+	Transform glidePlane;
 	
 	Vector3 startDistance;
 	Vector3 endDistance;
@@ -23,6 +22,7 @@ public class CarBehaviour : MonoBehaviour {
 	void Start () {
 		wheels = GetComponentsInChildren<WheelCollider>();
 		carRigidbody = GetComponent<Rigidbody>();
+		glidePlane = GameObject.Find("GlidePlane").transform;
 
 		for (int i = 0; i < wheels.Length; ++i) 
 		{
@@ -142,13 +142,13 @@ public class CarBehaviour : MonoBehaviour {
 		if (hit.collider != null)
 		{
 			if (hit.collider.tag == "Floor") {
-				Debug.Log ("Colisionando con FLOOR");
+				//Debug.Log ("Colisionando con FLOOR");
 				mode = "driving";
 				carRigidbody.constraints = RigidbodyConstraints.None;
 			}
 
 			if (hit.collider.tag == "Slow") {
-				Debug.Log ("Colisionando con SLOW");
+				//Debug.Log ("Colisionando con SLOW");
 				mode = "slowing";
 				carRigidbody.constraints = RigidbodyConstraints.None;
 			}
